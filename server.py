@@ -9,14 +9,14 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             self.send_header('Content-type','application/json')
             self.send_header('Access-Control-Allow-Origin','*')
             self.end_headers()
-            contents = self.get_random_scoreboard_data()
+            contents = self.get_random_scoreboard_data('scoreboard')
             self.wfile.write(contents)
             return
         else:
             self.send_error(404)
 
-    def get_random_scoreboard_data(self):
-        json_dir = 'JSON'
+    def get_random_scoreboard_data(self, module_json_dir_name):
+        json_dir = 'JSON/' + module_json_dir_name
         file_name = random.choice(os.listdir(json_dir))
         open_file = open(json_dir + '/' +file_name)
         contents = open_file.read()
