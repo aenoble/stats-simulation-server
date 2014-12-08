@@ -42,7 +42,8 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
 try:
     server = BaseHTTPServer.HTTPServer(('97.107.137.56',8017), WebRequestHandler)    
+    print 'Buble starts singing his sweet stats songs.'
     server.serve_forever()
 except KeyboardInterrupt:
-    print 'Buble has ended his set.'
     server.socket.close()
+    print 'Buble has ended his set.'
