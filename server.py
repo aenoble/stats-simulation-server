@@ -5,18 +5,34 @@ import sys, os, random
 class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/scoreboard': 
-            self.send_response(200)
-            self.send_header('Content-type','application/json')
-            self.send_header('Access-Control-Allow-Origin','*')
-            self.end_headers()
-            contents = self.get_random_scoreboard_data('scoreboard')
+            self.set_headers()
+            contents = self.get_random_data('scoreboard')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/scoreboard/corrupted':
+            self.set_headers()
+            contents = self.get_corrupted_data('scoreboard')
             self.wfile.write(contents)
             return
         else:
             self.send_error(404)
 
-    def get_random_scoreboard_data(self, module_json_dir_name):
+    def set_headers(self):
+        self.send_response(200)
+        self.send_header('Content-type','application/json')
+        self.send_header('Access-Control-Allow-Origin','*')
+        self.end_headers()
+
+    def get_random_data(self, module_json_dir_name):
         json_dir = 'JSON/' + module_json_dir_name
+        file_name = random.choice(os.listdir(json_dir))
+        open_file = open(json_dir + '/' +file_name)
+        contents = open_file.read()
+        open_file.close()
+        return contents
+
+    def get_corrupted_data(self, module_json_dir_name):
+        json_dir = 'CORRUPTED_JSON/' + module_json_dir_name
         file_name = random.choice(os.listdir(json_dir))
         open_file = open(json_dir + '/' +file_name)
         contents = open_file.read()
