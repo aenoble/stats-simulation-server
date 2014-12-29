@@ -12,10 +12,10 @@
         "Scorebar": {
             "date1": {
                 "game1": {
-                    "Attendance": "1139"
-                    "Date": "2014-12-04"
-                    "GameClock": "0:00"
-                    "GameReportUrl": "http://lhjmq.leaguestat.com//stats/official-game-report.php?game_id=3068"
+                    "Attendance": "1139",
+                    "Date": "2014-12-04",
+                    "GameClock": "0:00",
+                    "GameReportUrl": "http://lhjmq.leaguestat.com//stats/official-game-report.php?game_id=3068",
                     "GameSummaryUrl": "http://lhjmq.leaguestat.com//stats/game-summary.php?game_id=3068", 
                     "HomeCity": "Acadie-Bathurst", 
                     "HomeCode": "Bat", 
