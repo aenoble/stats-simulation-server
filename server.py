@@ -52,6 +52,8 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         file_name = files[self.vcr_counter % len(files)]
         WebRequestHandler.vcr_counter = WebRequestHandler.vcr_counter + 1
 
+        print("Buble's singing a tune: " + file_name)
+
         open_file = open(json_dir + '/' +file_name)
         contents = open_file.read()
         open_file.close()
