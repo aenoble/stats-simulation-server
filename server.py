@@ -3,6 +3,8 @@ import sys, os, random
 
 
 class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+    vcr_counter = 0
+
     def do_GET(self):
         if self.path == '/scoreboard': 
             self.set_headers()
@@ -12,6 +14,11 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         elif self.path == '/scoreboard/corrupted':
             self.set_headers()
             contents = self.get_corrupted_data('scoreboard')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/scoreboard/vcr':
+            self.set_headers()
+            contents = self.get_vcr_data('scoreboard')
             self.wfile.write(contents)
             return
         else:
@@ -34,6 +41,17 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def get_corrupted_data(self, module_json_dir_name):
         json_dir = 'CORRUPTED_JSON/' + module_json_dir_name
         file_name = random.choice(os.listdir(json_dir))
+        open_file = open(json_dir + '/' +file_name)
+        contents = open_file.read()
+        open_file.close()
+        return contents
+
+    def get_vcr_data(self, module_json_dir_name):
+        json_dir = 'JSON/' + module_json_dir_name + '_vcr'
+        files = sorted(os.listdir(json_dir))
+        file_name = files[self.vcr_counter % len(files)]
+        WebRequestHandler.vcr_counter = WebRequestHandler.vcr_counter + 1
+
         open_file = open(json_dir + '/' +file_name)
         contents = open_file.read()
         open_file.close()
