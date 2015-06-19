@@ -11,6 +11,11 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             contents = self.get_random_data('scoreboard')
             self.wfile.write(contents)
             return
+        elif self.path == '/scoreboard/ticats':
+            self.set_headers()
+            contents = self.get_random_data('ticats_scoreboard')
+            self.wfile.write(contents)
+            return
         elif self.path == '/scoreboard/corrupted':
             self.set_headers()
             contents = self.get_corrupted_data('scoreboard')
@@ -61,7 +66,7 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         
 
 try:
-    server = BaseHTTPServer.HTTPServer(('97.107.137.56',8017), WebRequestHandler)    
+    server = BaseHTTPServer.HTTPServer(('localhost',8017), WebRequestHandler)    
     print 'Buble starts singing his sweet stats songs.'
     server.serve_forever()
 except KeyboardInterrupt:
