@@ -1,5 +1,5 @@
 import BaseHTTPServer
-import sys, os, random
+import sys, os, random, re
 
 
 class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
@@ -14,6 +14,11 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         elif self.path == '/scoreboard/ticats':
             self.set_headers()
             contents = self.get_random_data('ticats_scoreboard')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/scoreboard/ticats/mugsy':
+            self.set_headers()
+            contents = self.get_vcr_data('mugsy_ticats_scoreboard')
             self.wfile.write(contents)
             return
         elif self.path == '/scoreboard/corrupted':
@@ -53,7 +58,7 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
     def get_vcr_data(self, module_json_dir_name):
         json_dir = 'JSON/' + module_json_dir_name + '_vcr'
-        files = sorted(os.listdir(json_dir))
+        files = self.natural_sort(os.listdir(json_dir))
         file_name = files[self.vcr_counter % len(files)]
         WebRequestHandler.vcr_counter = WebRequestHandler.vcr_counter + 1
 
@@ -63,6 +68,14 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         contents = open_file.read()
         open_file.close()
         return contents
+
+    #http://stackoverflow.com/questions/4836710/does-python-have-a-built-in-function-for-string-natural-sort
+    @staticmethod
+    def natural_sort(l): 
+        convert = lambda text: int(text) if text.isdigit() else text.lower() 
+        alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+        return sorted(l, key = alphanum_key)
+
         
 
 try:

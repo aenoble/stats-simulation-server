@@ -1,0 +1,176 @@
+[{
+    "id": 12845,
+    "game_num": null,
+    "week_num": 3,
+    "game_date": "2015-06-19T20:30:00.000Z",
+    "game_status": "Final",
+    "away_team": {
+        "id": 6,
+        "initial": "ham",
+        "city": "Hamilton",
+        "name": "Tiger-Cats",
+        "culture": "en"
+    },
+    "home_team": {
+        "id": 5,
+        "initial": "wpg",
+        "city": "Winnipeg",
+        "name": "Blue Bombers",
+        "culture": "en"
+    },
+    "away_score": 22,
+    "home_score": 27,
+    "sold_out": 0,
+    "stats_inc_id": 1529626,
+    "period_value": 4,
+    "period_time_remaining": null,
+    "last_update": "2015-05-27T13:34:08.000Z",
+    "url": "/games/12845",
+    "week": {
+        "name": "Pre-Season C",
+        "short_name": "C",
+        "id": 3,
+        "culture": "en"
+    },
+    "box_score_link": "http://www.cfl.ca/statistics/statsGame/id/12845"
+}, {
+    "id": 12851,
+    "game_num": null,
+    "week_num": 5,
+    "game_date": "2015-06-26T21:00:00.000Z",
+    "game_status": "Final",
+    "away_team": {
+        "id": 6,
+        "initial": "ham",
+        "city": "Hamilton",
+        "name": "Tiger-Cats",
+        "culture": "en"
+    },
+    "home_team": {
+        "id": 2,
+        "initial": "cgy",
+        "city": "Calgary",
+        "name": "Stampeders",
+        "culture": "en"
+    },
+    "away_score": 7,
+    "home_score": 31,
+    "sold_out": 0,
+    "stats_inc_id": 1529637,
+    "period_value": 4,
+    "period_time_remaining": null,
+    "last_update": "2015-02-15T01:28:41.000Z",
+    "url": "/games/12851",
+    "week": {
+        "name": "Week 1",
+        "short_name": "01",
+        "id": 5,
+        "culture": "en"
+    },
+    "box_score_link": "http://www.cfl.ca/statistics/statsGame/id/12851"
+}, {
+    "id": 12857,
+    "game_num": null,
+    "week_num": 6,
+    "game_date": "2015-07-02T20:30:00.000Z",
+    "game_status": "Live",
+    "away_team": {
+        "id": 6,
+        "initial": "ham",
+        "city": "Hamilton",
+        "name": "Tiger-Cats",
+        "culture": "en"
+    },
+    "home_team": {
+        "id": 5,
+        "initial": "wpg",
+        "city": "Winnipeg",
+        "name": "Blue Bombers",
+        "culture": "en"
+    },
+    "away_score": 3,
+    "home_score": 3,
+    "sold_out": 0,
+    "stats_inc_id": 1529643,
+    "period_value": 1,
+    "period_time_remaining": "10:22",
+    "last_update": "2015-02-15T01:29:02.000Z",
+    "url": "/games/12857",
+    "week": {
+        "name": "Week 2",
+        "short_name": "02",
+        "id": 6,
+        "culture": "en"
+    },
+    "box_score_link": "http://www.cfl.ca/statistics/statsGame/id/12857"
+}, {
+    "id": 12873,
+    "game_num": null,
+    "week_num": 8,
+    "game_date": "2015-07-16T19:30:00.000Z",
+    "game_status": "Pre-Game",
+    "away_team": {
+        "id": 6,
+        "initial": "ham",
+        "city": "Hamilton",
+        "name": "Tiger-Cats",
+        "culture": "en"
+    },
+    "home_team": {
+        "id": 9,
+        "initial": "mtl",
+        "city": "Montreal",
+        "name": "Alouettes",
+        "culture": "en"
+    },
+    "away_score": null,
+    "home_score": null,
+    "sold_out": 0,
+    "stats_inc_id": 1529654,
+    "period_value": null,
+    "period_time_remaining": null,
+    "last_update": "2015-02-15T01:30:13.000Z",
+    "url": "/games/12873",
+    "week": {
+        "name": "Week 4",
+        "short_name": "04",
+        "id": 8,
+        "culture": "en"
+    },
+    "box_score_link": "http://www.cfl.ca/statistics/statsGame/id/12873"
+}, {
+    "id": 12887,
+    "game_num": null,
+    "week_num": 9,
+    "game_date": "2015-07-26T19:00:00.000Z",
+    "game_status": "Pre-Game",
+    "away_team": {
+        "id": 6,
+        "initial": "ham",
+        "city": "Hamilton",
+        "name": "Tiger-Cats",
+        "culture": "en"
+    },
+    "home_team": {
+        "id": 4,
+        "initial": "ssk",
+        "city": "Saskatchewan",
+        "name": "Roughriders",
+        "culture": "en"
+    },
+    "away_score": 21,
+    "home_score": null,
+    "sold_out": 0,
+    "stats_inc_id": 1529665,
+    "period_value": null,
+    "period_time_remaining": null,
+    "last_update": "2015-02-15T01:32:26.000Z",
+    "url": "/games/12887",
+    "week": {
+        "name": "Week 5",
+        "short_name": "05",
+        "id": 9,
+        "culture": "en"
+    },
+    "box_score_link": "http://www.cfl.ca/statistics/statsGame/id/12887"
+}]
