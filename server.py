@@ -21,6 +21,11 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             contents = self.get_vcr_data('mugsy_ticats_scoreboard')
             self.wfile.write(contents)
             return
+        elif self.path == '/scoreboard/ticats/real':
+            self.set_headers()
+            contents = self.get_vcr_data('real_ticats_scoreboard')
+            self.wfile.write(contents)
+            return
         elif self.path == '/scoreboard/corrupted':
             self.set_headers()
             contents = self.get_corrupted_data('scoreboard')
