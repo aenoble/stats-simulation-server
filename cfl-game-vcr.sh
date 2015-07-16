@@ -34,6 +34,6 @@ do
     view="team_player_stats"
     output_path="JSON/${view}_vcr"
     curl $team_player_stats_url > ${output_path}/${current_datepath}-${timepath}.json
-    # wait 5 minutes
-    sleep $(expr 60 \* 5)
+    # wait 1 minute
+    sleep $(expr 60 \* 1)
 done
