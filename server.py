@@ -36,6 +36,31 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             contents = self.get_vcr_data('scoreboard')
             self.wfile.write(contents)
             return
+        elif self.path == '/boxscore/linescore':
+            self.set_headers()
+            contents = self.get_vcr_data('line_score')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/boxscore/leaders':
+            self.set_headers()
+            contents = self.get_vcr_data('game_leaders')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/boxscore/head_to_head':
+            self.set_headers()
+            contents = self.get_vcr_data('head_to_head')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/boxscore/play_by_play':
+            self.set_headers()
+            contents = self.get_vcr_data('play_by_play')
+            self.wfile.write(contents)
+            return
+        elif self.path == '/boxscore/team_player_stats':
+            self.set_headers()
+            contents = self.get_vcr_data('team_player_stats')
+            self.wfile.write(contents)
+            return
         else:
             self.send_error(404)
 
