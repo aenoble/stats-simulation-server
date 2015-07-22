@@ -4,6 +4,11 @@ import sys, os, random, re
 
 class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     vcr_counter = 0
+    linescore_counter = 0
+    leaders_counter = 0
+    headtohead_counter = 0
+    playbyplay_counter = 0
+    teamplayerstats_counter = 0
 
     def do_GET(self):
         if self.path == '/scoreboard': 
@@ -38,27 +43,34 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             return
         elif self.path == '/boxscore/linescore':
             self.set_headers()
-            contents = self.get_vcr_data('line_score')
+            contents = self.get_vcr_data('line_score', self.linescore_counter)
+            WebRequestHandler.linescore_counter = WebRequestHandler.linescore_counter + 1
             self.wfile.write(contents)
             return
         elif self.path == '/boxscore/leaders':
             self.set_headers()
-            contents = self.get_vcr_data('game_leaders')
+            contents = self.get_vcr_data('game_leaders', self.leaders_counter)
+            WebRequestHandler.leaders_counter = WebRequestHandler.leaders_counter + 1
             self.wfile.write(contents)
             return
         elif self.path == '/boxscore/head_to_head':
             self.set_headers()
-            contents = self.get_vcr_data('head_to_head')
+            contents = self.get_vcr_data('head_to_head',
+                    self.headtohead_counter)
+            WebRequestHandler.headtohead_counter = WebRequestHandler.headtohead_counter + 1
             self.wfile.write(contents)
             return
         elif self.path == '/boxscore/play_by_play':
             self.set_headers()
-            contents = self.get_vcr_data('play_by_play')
+            contents = self.get_vcr_data('play_by_play',
+                    self.playbyplay_counter)
+            WebRequestHandler.playbyplay_counter = WebRequestHandler.playbyplay_counter + 1
             self.wfile.write(contents)
             return
         elif self.path == '/boxscore/team_player_stats':
             self.set_headers()
-            contents = self.get_vcr_data('team_player_stats')
+            contents = self.get_vcr_data('team_player_stats', self.teamplayerstats_counter)
+            WebRequestHandler.teamplayerstats_counter = WebRequestHandler.teamplayerstats_counter + 1
             self.wfile.write(contents)
             return
         else:
@@ -86,11 +98,15 @@ class WebRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         open_file.close()
         return contents
 
-    def get_vcr_data(self, module_json_dir_name):
+    def get_vcr_data(self, module_json_dir_name, counter):
         json_dir = 'JSON/' + module_json_dir_name + '_vcr'
         files = self.natural_sort(os.listdir(json_dir))
-        file_name = files[self.vcr_counter % len(files)]
-        WebRequestHandler.vcr_counter = WebRequestHandler.vcr_counter + 1
+
+        if counter:
+            file_name = files[counter % len(files)]
+        else:
+            file_name = files[self.vcr_counter % len(files)] 
+            WebRequestHandler.vcr_counter = WebRequestHandler.vcr_counter + 1
 
         print("Buble's singing a tune: " + file_name)
 
